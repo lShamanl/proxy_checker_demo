@@ -15,9 +15,6 @@ nelmio_api_doc:
                 alias: 'ProxyChecker | CheckList | Create | InputContract'
                 type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Create\InputContract
             -
-                alias: 'ProxyChecker | CheckList | Edit | InputContract'
-                type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Edit\InputContract
-            -
                 alias: 'ProxyChecker | CheckList | Remove | InputContract'
                 type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Remove\InputContract
             -

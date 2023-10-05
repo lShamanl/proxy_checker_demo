@@ -18,10 +18,7 @@ class CommandFactory
         }
 
         return new Command(
-            endAt: null !== $inputContract->endAt ? new DateTimeImmutable($inputContract->endAt) : null,
             payload: $inputContract->payload,
-            allIteration: null !== $inputContract->allIteration ? $inputContract->allIteration : null,
-            successIteration: null !== $inputContract->successIteration ? $inputContract->successIteration : null,
         );
     }
 }

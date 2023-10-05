@@ -18,15 +18,6 @@ class CreateType extends AbstractType
         array $options,
     ): void {
         $builder
-            ->add('endAt', DateTimeType::class, [
-                'widget' => 'single_text',
-                'input' => 'datetime_immutable',
-                'empty_data' => '',
-                'required' => false,
-                'label' => 'app.admin.ui.modules.proxy_checker.check_list.properties.end_at',
-                'constraints' => [
-                ],
-            ])
             ->add('payload', TextareaType::class, [
                 'required' => true,
                 'label' => 'app.admin.ui.modules.proxy_checker.check_list.properties.payload',
@@ -34,17 +25,6 @@ class CreateType extends AbstractType
                     new NotBlank(allowNull: false),
                 ],
             ])
-            ->add('allIteration', IntegerType::class, [
-                'required' => false,
-                'label' => 'app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration',
-                'constraints' => [
-                ],
-            ])
-            ->add('successIteration', IntegerType::class, [
-                'required' => false,
-                'label' => 'app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration',
-                'constraints' => [
-                ],
-            ]);
+        ;
     }
 }

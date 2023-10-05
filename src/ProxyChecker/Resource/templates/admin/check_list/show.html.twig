@@ -45,10 +45,6 @@
         </tbody>
      </table>
     <div class="ui buttons">
-        <a href="{{ path("app_proxy_checker.check_list_update", {"id": resource.id} ) }}" class="ui labeled icon button">
-            <i class="pencil icon"></i>
-            {{ 'app.admin.ui.edit' | trans }}
-        </a>
         {% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
         {{ buttons.delete(path("app_proxy_checker.check_list_delete", {"id": resource.id} ), '', true, resource.id) }}
     </div>

@@ -26,10 +26,10 @@ readonly class Handler
             id: $this->checkListNextIdService->allocateId(),
             createdAt: $now,
             updatedAt: $now,
-            endAt: $command->endAt,
+            endAt: null,
             payload: $command->payload,
-            allIteration: $command->allIteration,
-            successIteration: $command->successIteration
+            allIteration: count(explode(PHP_EOL, $command->payload)),
+            successIteration: 0,
         );
 
         $this->checkListRepository->add($checkList);
