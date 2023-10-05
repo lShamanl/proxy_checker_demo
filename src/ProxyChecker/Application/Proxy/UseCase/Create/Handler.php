@@ -99,7 +99,7 @@ readonly class Handler
                 checkList: $checkList
             );
 
-//            $this->proxyChecker->check($proxy);
+            $this->proxyChecker->check($proxy);
             $checkList->incrementSuccessIteration();
         }
         if (isset($proxy)) {

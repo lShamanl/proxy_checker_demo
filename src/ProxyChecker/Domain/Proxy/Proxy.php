@@ -280,4 +280,14 @@ class Proxy implements AggregateRoot, ResourceInterface
             $this->port
         );
     }
+
+    public function setTimeout(?int $timeout): void
+    {
+        $this->timeout = $timeout;
+    }
+
+    public function setProxyType(ProxyType $proxyType): void
+    {
+        $this->proxyType = $proxyType;
+    }
 }

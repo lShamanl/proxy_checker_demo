@@ -64,7 +64,7 @@ class CheckList implements AggregateRoot, ResourceInterface
 
     /** Полезная нагрузка */
     #[Column(
-        type: 'string',
+        type: 'text',
         unique: false,
         nullable: false,
     )]
