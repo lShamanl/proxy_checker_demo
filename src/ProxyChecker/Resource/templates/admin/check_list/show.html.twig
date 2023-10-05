@@ -29,19 +29,6 @@
             <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration'|trans }}:</strong></td>
             <td>{{ resource.successIteration }}</td>
         </tr>
-        <tr class="item">
-            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.relations.proxy'|trans }}:</strong></td>
-            <td>
-                {% if (resource.proxy) %}
-                    <a class="ui labeled icon" href="{{ path('app_proxy_checker.proxy_show', {'id': resource.proxy.id}) }}"><i class="linkify icon"></i>{{ resource.proxy.ipProxy }}</a>
-                {% else %}
-                    <a href="{{ path("app_proxy_checker.proxy_create", {"check_list_id": resource.id} ) }}" class="primary ui labeled icon button">
-                        <i class="plus icon"></i>
-                        {{ 'app.admin.ui.common.create' | trans }}
-                    </a>
-                {% endif %}
-            </td>
-        </tr>
         </tbody>
      </table>
     <div class="ui buttons">
@@ -54,10 +41,16 @@
     <table class="ui celled table">
         <thead>
         <tr class="center aligned">
-            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.id' | trans }}</th>
-            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.end_at' | trans }}</th>
-            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration' | trans }}</th>
-            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.id' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.ip_proxy' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.ip_real' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.port' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.proxy_type' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.proxy_status' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.country' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.region' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.city' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.timeout' | trans }}</th>
         </tr>
         </thead>
         <tbody class="left aligned">

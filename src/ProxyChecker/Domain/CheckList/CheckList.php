@@ -89,6 +89,8 @@ class CheckList implements AggregateRoot, ResourceInterface
     #[OneToMany(
         mappedBy: 'checkList',
         targetEntity: Proxy::class,
+        cascade: ['all'],
+        orphanRemoval: true,
     )]
     private Collection $proxies;
 
@@ -184,5 +186,10 @@ class CheckList implements AggregateRoot, ResourceInterface
     public function onUpdated(): void
     {
         $this->updatedAt = new DateTimeImmutable();
+    }
+
+    public function incrementSuccessIteration(): void
+    {
+        ++$this->successIteration;
     }
 }

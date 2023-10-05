@@ -8,7 +8,7 @@ use App\ProxyChecker\Domain\CheckList\ValueObject\CheckListId;
 use App\ProxyChecker\Domain\Proxy\Enum\ProxyStatus;
 use App\ProxyChecker\Domain\Proxy\Enum\ProxyType;
 
-readonly class Command
+class Command
 {
     public function __construct(
         public CheckListId $checkListId,

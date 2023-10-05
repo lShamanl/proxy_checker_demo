@@ -8,6 +8,7 @@ enum ResultCase
 {
     case Success;
     case CheckListNotExists;
+    case CanNotProcessing;
 
     public function isEqual(self $enum): bool
     {

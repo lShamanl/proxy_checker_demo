@@ -31,6 +31,22 @@ class Result
         return $this->case->isEqual(ResultCase::Success);
     }
 
+    public static function canNotProcessing(
+        string $proxy,
+    ): self {
+        return new self(
+            case: ResultCase::CanNotProcessing,
+            context: [
+                'proxy' => $proxy,
+            ],
+        );
+    }
+
+    public function isCanNotProcessing(): bool
+    {
+        return $this->case->isEqual(ResultCase::CanNotProcessing);
+    }
+
     public static function checkListNotExists(array $context = []): self
     {
         return new self(case: ResultCase::CheckListNotExists, context: $context);

@@ -1,4 +1,4 @@
 framework:
     messenger:
         transports:
-             common-command-transport: 'sync://'
+#             common-command-transport: 'sync://'
