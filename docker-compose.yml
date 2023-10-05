@@ -3,8 +3,8 @@ version: "3.7"
 networks:
   default:
     name: app-network
-  my-network:
-      driver: bridge
+#  my-network:
+#      driver: bridge
 
 services:
   nginx:
@@ -22,8 +22,8 @@ services:
       - ./:/app
       - app_cache:/var/cache/app
       - app_log:/var/log/app
-    networks:
-      - my-network
+#    networks:
+#      - my-network
 
   app-postgres-db:
     volumes:
