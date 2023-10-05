@@ -14,7 +14,6 @@ use App\ProxyChecker\Domain\Proxy\Service\ProxyNextIdService;
 use DateTimeImmutable;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\RequestOptions;
-use proxycheck\proxycheck;
 
 readonly class Handler
 {
@@ -42,26 +41,24 @@ readonly class Handler
             $port = 80; // или другое значение по умолчанию
         }
 
-        $options = array_filter([
-            RequestOptions::FORM_PARAMS => [
-                'ips',
-            ],
-            RequestOptions::QUERY => [
-                'key' => '417g66-52d6x5-51312c-65c750',
-                'vpn' => 1,
-                'asn' => 1,
-                'risk' => 1,
-                'port' => 1,
-                'seen' => 1,
-                'days' => 7,
-                'tag' => 'msg',
-            ],
-        ]);
-
         $response = $this->client->request(
             method: 'GET',
             uri: 'http://proxycheck.io/v2/' . $command->proxy,
-            options: $options,
+            options: [
+                RequestOptions::FORM_PARAMS => [
+                    'ips',
+                ],
+                RequestOptions::QUERY => [
+                    'key' => '417g66-52d6x5-51312c-65c750',
+                    'vpn' => 1,
+                    'asn' => 1,
+                    'risk' => 1,
+                    'port' => 1,
+                    'seen' => 1,
+                    'days' => 7,
+                    'tag' => 'msg',
+                ],
+            ],
         );
         $payload = json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
         if ('error' === $payload['status']) {
