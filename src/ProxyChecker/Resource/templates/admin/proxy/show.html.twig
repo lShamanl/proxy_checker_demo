@@ -1,0 +1,63 @@
+<div class="ui segment">
+    <table class="ui very1 basic collapsing celled table">
+        <tbody>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.id'|trans }}:</strong></td>
+            <td>{{ resource.id }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.created_at'|trans }}:</strong></td>
+            <td>{{ resource.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.updated_at'|trans }}:</strong></td>
+            <td>{{ resource.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.ip_proxy'|trans }}:</strong></td>
+            <td>{{ resource.ipProxy }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.ip_real'|trans }}:</strong></td>
+            <td>{{ resource.ipReal }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.port'|trans }}:</strong></td>
+            <td>{{ resource.port }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.proxy_type'|trans }}:</strong></td>
+            <td>{% include '@proxyChecker/admin/proxy/enum/proxyType.html.twig' with {'data': resource.proxyType} %}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.proxy_status'|trans }}:</strong></td>
+            <td>{% include '@proxyChecker/admin/proxy/enum/proxyStatus.html.twig' with {'data': resource.proxyStatus} %}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.country'|trans }}:</strong></td>
+            <td>{{ resource.country }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.region'|trans }}:</strong></td>
+            <td>{{ resource.region }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.city'|trans }}:</strong></td>
+            <td>{{ resource.city }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.properties.timeout'|trans }}:</strong></td>
+            <td>{{ resource.timeout }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.proxy.relations.check_list'|trans }}:</strong></td>
+            <td>{% include '@proxyChecker/admin/check_list/link-to-show.html.twig' with {'data': resource.checkList} %}</td>
+        </tr>
+        </tbody>
+     </table>
+    <div class="ui buttons">
+        {% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+        {{ buttons.delete(path("app_proxy_checker.proxy_delete", {"id": resource.id} ), '', true, resource.id) }}
+    </div>
+
+</div>

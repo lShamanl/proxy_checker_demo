@@ -1,0 +1,10 @@
+doctrine:
+    dbal:
+        types:
+            proxy_checker_check_list_id: App\ProxyChecker\Domain\CheckList\Type\CheckListIdType
+            proxy_checker_proxy_id: App\ProxyChecker\Domain\Proxy\Type\ProxyIdType
+            proxy_checker_proxy_type: App\ProxyChecker\Domain\Proxy\Type\ProxyTypeType
+            proxy_checker_proxy_status: App\ProxyChecker\Domain\Proxy\Type\ProxyStatusType
+        mapping_types:
+            proxy_checker_proxy_type: proxy_checker_proxy_type
+            proxy_checker_proxy_status: proxy_checker_proxy_status

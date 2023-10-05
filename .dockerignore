@@ -1,0 +1,9 @@
+.env.local
+.git
+.gitignore
+/.idea
+/.deploy
+/vendor
+/var/cache/*
+/var/log/*
+/var/test/*

@@ -1,0 +1,3 @@
+proxy_checker_http:
+    resource: ../../../../../src/ProxyChecker/Entry/Http/
+    type: annotation

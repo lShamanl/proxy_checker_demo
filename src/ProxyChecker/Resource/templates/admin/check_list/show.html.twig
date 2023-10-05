@@ -1,0 +1,86 @@
+<div class="ui segment">
+    <table class="ui very1 basic collapsing celled table">
+        <tbody>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.id'|trans }}:</strong></td>
+            <td>{{ resource.id }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.created_at'|trans }}:</strong></td>
+            <td>{{ resource.createdAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.updated_at'|trans }}:</strong></td>
+            <td>{{ resource.updatedAt|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.end_at'|trans }}:</strong></td>
+            <td>{% if (resource.endAt) %} {{ resource.endAt|date('Y-m-d H:i:s') }} {% endif %}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.payload'|trans }}:</strong></td>
+            <td style="word-break: break-all;">{{ resource.payload }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration'|trans }}:</strong></td>
+            <td>{{ resource.allIteration }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration'|trans }}:</strong></td>
+            <td>{{ resource.successIteration }}</td>
+        </tr>
+        <tr class="item">
+            <td><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.relations.proxy'|trans }}:</strong></td>
+            <td>
+                {% if (resource.proxy) %}
+                    <a class="ui labeled icon" href="{{ path('app_proxy_checker.proxy_show', {'id': resource.proxy.id}) }}"><i class="linkify icon"></i>{{ resource.proxy.ipProxy }}</a>
+                {% else %}
+                    <a href="{{ path("app_proxy_checker.proxy_create", {"check_list_id": resource.id} ) }}" class="primary ui labeled icon button">
+                        <i class="plus icon"></i>
+                        {{ 'app.admin.ui.common.create' | trans }}
+                    </a>
+                {% endif %}
+            </td>
+        </tr>
+        </tbody>
+     </table>
+    <div class="ui buttons">
+        <a href="{{ path("app_proxy_checker.check_list_update", {"id": resource.id} ) }}" class="ui labeled icon button">
+            <i class="pencil icon"></i>
+            {{ 'app.admin.ui.edit' | trans }}
+        </a>
+        {% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+        {{ buttons.delete(path("app_proxy_checker.check_list_delete", {"id": resource.id} ), '', true, resource.id) }}
+    </div>
+    {% if (resource.proxies) %}
+    <p style="margin-top: 1.5rem"><strong>{{ 'app.admin.ui.modules.proxy_checker.check_list.relations.proxies'|trans }}:</strong></p>
+    <div style="overflow-x: auto">
+    <table class="ui celled table">
+        <thead>
+        <tr class="center aligned">
+            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.id' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.end_at' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration' | trans }}</th>
+            <th>{{ 'app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration' | trans }}</th>
+        </tr>
+        </thead>
+        <tbody class="left aligned">
+        {% for proxy in resource.proxies|slice(0,100) %}
+            <tr>
+                <td>{% include '@proxyChecker/admin/proxy/link-to-show.html.twig' with {'data': proxy} %}</td>
+                <td>{{ proxy.ipProxy }}</td>
+                <td>{{ proxy.ipReal }}</td>
+                <td>{{ proxy.port }}</td>
+                <td>{{ proxy.proxyType.name }}</td>
+                <td>{{ proxy.proxyStatus.name }}</td>
+                <td>{{ proxy.country }}</td>
+                <td>{{ proxy.region }}</td>
+                <td>{{ proxy.city }}</td>
+                <td>{{ proxy.timeout }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,14 @@
+app_proxy_checker_proxy:
+    resource: |
+        path: proxy-checker/proxies
+        alias: app.proxy_checker.proxy
+        only:
+            - index
+            - show
+        redirect: show
+        grid: app_proxy_checker_proxy
+        vars:
+            all:
+                templates:
+                    show: '@proxyChecker/admin/proxy/show.html.twig'
+    type: sylius.resource

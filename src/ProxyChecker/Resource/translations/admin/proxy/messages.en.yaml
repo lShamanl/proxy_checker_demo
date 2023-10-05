@@ -1,0 +1,51 @@
+app:
+    admin:
+        ui:
+            proxy_checker.proxies: Proxies
+            new_proxy_checker.proxy: 'Add Proxy'
+            edit_proxy_checker.proxy: 'Edit Proxy'
+            show_proxy_checker.proxy: Proxy
+            modules:
+                proxy_checker:
+                    proxy:
+                        properties:
+                            id: Id
+                            created_at: CreatedAt
+                            updated_at: UpdatedAt
+                            ip_proxy: IpProxy
+                            ip_real: IpReal
+                            port: Port
+                            proxy_type: ProxyType
+                            proxy_status: ProxyStatus
+                            country: Country
+                            region: Region
+                            city: City
+                            timeout: Timeout
+                        enums:
+                            proxy_type:
+                                http: http
+                                socks: socks
+                                other: other
+                            proxy_status:
+                                work: work
+                                not_work: not_work
+                        enum_colors:
+                            proxy_type:
+                                http: blue
+                                socks: blue
+                                other: blue
+                            proxy_status:
+                                work: blue
+                                not_work: blue
+                        flash:
+                            success: success
+                            check_list_not_exists: 'check list not exists'
+                            proxy_not_exists: 'proxy not exists'
+                        relations:
+                            check_lists: CheckLists
+                            check_list: CheckList
+                        actions: {  }
+                        other_labels: {  }
+            menu:
+                proxy_checker:
+                    proxy.list: Proxies

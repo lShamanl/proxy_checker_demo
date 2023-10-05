@@ -1,0 +1,31 @@
+nelmio_api_doc:
+    areas:
+        default:
+            path_patterns:
+                - /api/admin/proxy-checker
+    models:
+        names:
+            -
+                alias: 'ProxyChecker | CheckList | Search | QueryParams'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Search\QueryParams
+            -
+                alias: 'ProxyChecker | Proxy | Search | QueryParams'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\Proxy\Search\QueryParams
+            -
+                alias: 'ProxyChecker | CheckList | Create | InputContract'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Create\InputContract
+            -
+                alias: 'ProxyChecker | CheckList | Edit | InputContract'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Edit\InputContract
+            -
+                alias: 'ProxyChecker | CheckList | Remove | InputContract'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\CheckList\Remove\InputContract
+            -
+                alias: 'ProxyChecker | Proxy | Remove | InputContract'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\Proxy\Remove\InputContract
+            -
+                alias: 'ProxyChecker | CheckList | CommonOutputContract'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\Contract\CheckList\CommonOutputContract
+            -
+                alias: 'ProxyChecker | Proxy | CommonOutputContract'
+                type: App\ProxyChecker\Entry\Http\Admin\Api\Contract\Proxy\CommonOutputContract

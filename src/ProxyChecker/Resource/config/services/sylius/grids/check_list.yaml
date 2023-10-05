@@ -1,0 +1,76 @@
+sylius_grid:
+    grids:
+        app_proxy_checker_check_list:
+            limits:
+                - 25
+                - 50
+                - 100
+                - 250
+                - 500
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%app.model.proxy_checker.check_list.class%'
+            fields:
+                id:
+                    type: twig
+                    label: app.admin.ui.id
+                    options:
+                        template: '@proxyChecker/admin/check_list/link-to-show.html.twig'
+                    sortable: ~
+                createdAt:
+                    type: datetime
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.created_at
+                    sortable: ~
+                updatedAt:
+                    type: datetime
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.updated_at
+                    sortable: ~
+                endAt:
+                    type: datetime
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.end_at
+                    sortable: ~
+                allIteration:
+                    type: string
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration
+                    sortable: ~
+                successIteration:
+                    type: string
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration
+                    sortable: ~
+            sorting:
+                id: desc
+            filters:
+                id:
+                    type: int
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.id
+                    form_options:
+                        label: app.admin.ui.modules.proxy_checker.check_list.properties.id
+                        type: equal
+                    options:
+                        type: equal
+                endAt:
+                    type: date
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.end_at
+                    options:
+                        format: 'Y-m-d H:i:s'
+                allIteration:
+                    type: int
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration
+                    form_options:
+                        label: app.admin.ui.modules.proxy_checker.check_list.properties.all_iteration
+                        type: equal
+                    options:
+                        type: equal
+                successIteration:
+                    type: int
+                    label: app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration
+                    form_options:
+                        label: app.admin.ui.modules.proxy_checker.check_list.properties.success_iteration
+                        type: equal
+                    options:
+                        type: equal
+            actions:
+                main:
+                    create:
+                        type: create

@@ -1,0 +1,9 @@
+doctrine:
+    orm:
+        mappings:
+            App\ProxyChecker:
+                is_bundle: false
+                type: attribute
+                dir: '%kernel.project_dir%/src/ProxyChecker/Domain'
+                prefix: App\ProxyChecker\Domain
+                alias: App_ProxyChecker

@@ -1,0 +1,19 @@
+sylius:
+  ui:
+    administration: Главная
+app:
+    admin:
+        ui:
+            id: Id
+            edit: Редактировать
+            common:
+                project: ProxyChecker
+                repeat: Повторить
+                save: Сохранить
+                login: Войти
+                create: Создать
+                yes_label: Да
+                no_label: Нет
+                download: Cкачать
+                show: Показать
+                details: Детали

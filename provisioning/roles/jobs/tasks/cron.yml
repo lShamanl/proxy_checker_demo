@@ -1,0 +1,9 @@
+---
+-   name: Example
+    become: yes
+    become_user: deploy
+    cron:
+        name: command-name example
+        job: 'cd app && docker compose -f docker-compose-production.yml run --rm app-php-fpm php bin/console app:example:command'
+        minute: '0'
+        hour: '1'

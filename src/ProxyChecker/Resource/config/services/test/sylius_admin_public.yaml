@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+    App\ProxyChecker\Domain\CheckList\CheckListRepository:
+        public: true
+    App\ProxyChecker\Domain\Proxy\ProxyRepository:
+        public: true
+    App\Tests\Builder\ProxyChecker\CheckList\CheckListBuilder:
+        public: true
+    App\Tests\Builder\ProxyChecker\Proxy\ProxyBuilder:
+        public: true

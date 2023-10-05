@@ -1,0 +1,8 @@
+sylius_resource:
+    resources:
+        app.user:
+            templates: admin/layout/crud
+            driver: doctrine/orm
+            classes:
+                model: App\Auth\Domain\User\User
+                controller: App\Auth\Entry\Http\Admin\Controller\User\UserController

@@ -1,0 +1,8 @@
+sylius_resource:
+    resources:
+        app.proxy_checker.proxy:
+            templates: admin/layout/crud
+            driver: doctrine/orm
+            classes:
+                model: App\ProxyChecker\Domain\Proxy\Proxy
+                controller: App\ProxyChecker\Entry\Http\Admin\Sylius\Controller\Proxy\ProxyController

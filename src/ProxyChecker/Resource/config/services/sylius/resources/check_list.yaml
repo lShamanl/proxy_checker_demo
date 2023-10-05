@@ -1,0 +1,8 @@
+sylius_resource:
+    resources:
+        app.proxy_checker.check_list:
+            templates: admin/layout/crud
+            driver: doctrine/orm
+            classes:
+                model: App\ProxyChecker\Domain\CheckList\CheckList
+                controller: App\ProxyChecker\Entry\Http\Admin\Sylius\Controller\CheckList\CheckListController

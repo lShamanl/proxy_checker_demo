@@ -1,0 +1,32 @@
+app:
+    admin:
+        ui:
+            proxy_checker.check_lists: CheckLists
+            new_proxy_checker.check_list: 'Add CheckList'
+            edit_proxy_checker.check_list: 'Edit CheckList'
+            show_proxy_checker.check_list: CheckList
+            modules:
+                proxy_checker:
+                    check_list:
+                        properties:
+                            id: Id
+                            created_at: CreatedAt
+                            updated_at: UpdatedAt
+                            end_at: EndAt
+                            payload: Payload
+                            all_iteration: AllIteration
+                            success_iteration: SuccessIteration
+                        enums: {  }
+                        enum_colors: {  }
+                        flash:
+                            success: success
+                            check_list_not_exists: 'check list not exists'
+                        relations:
+                            proxies: Proxies
+                            proxy: Proxy
+                        actions:
+                            add_proxy: 'Add Proxy'
+                        other_labels: {  }
+            menu:
+                proxy_checker:
+                    check_list.list: CheckLists

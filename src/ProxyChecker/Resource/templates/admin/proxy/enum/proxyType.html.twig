@@ -1,0 +1,5 @@
+{% if data is not empty %}
+    <span class="ui {{ ('app.admin.ui.modules.proxy_checker.proxy.enum_colors.proxy_type.' ~ data.value) | trans }} label">
+        {{ ('app.admin.ui.modules.proxy_checker.proxy.enums.proxy_type.' ~ data.value)|trans }}
+    </span>
+{% endif %}
