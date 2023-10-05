@@ -45,7 +45,7 @@ readonly class Handler
 
         $response = $this->client->request(
             method: 'GET',
-            uri: 'http://proxycheck.io/v2/' . $command->proxy,
+            uri: 'http://proxycheck.io/v2/' . $ipProxy,
             options: [
                 RequestOptions::FORM_PARAMS => [
                     'ips',

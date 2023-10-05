@@ -22,14 +22,18 @@ readonly class ProxyChecker
         if (null === $request) {
             return;
         }
+        $payload = $request->getBody()->getContents();
+        $json = json_decode($payload, true, 512, JSON_THROW_ON_ERROR);
+        $proxy->setRealIp($json['query'] ?? '');
     }
 
     public function tryRequest(Proxy $proxy, string $protocol): ?ResponseInterface
     {
         try {
             $start = microtime(true);
+
             $client = new Client([
-                'timeout' => 5,
+                'timeout' => 100,
                 'proxy' => [
                     sprintf(
                         '%s://%s:%s',
@@ -45,7 +49,10 @@ readonly class ProxyChecker
 
             $duration = ($end - $start) * 1000; // Преобразовываем в миллисекунды
 
-            $proxy->setTimeout($duration);
+
+//            dd($result, $duration);
+
+            $proxy->setTimeout((int) $duration);
             $proxyType = ProxyType::tryFrom($protocol);
             if (null !== $proxyType) {
                 $proxy->setProxyType($proxyType);

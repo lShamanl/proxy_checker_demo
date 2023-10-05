@@ -290,4 +290,9 @@ class Proxy implements AggregateRoot, ResourceInterface
     {
         $this->proxyType = $proxyType;
     }
+
+    public function setRealIp(string $realIp): void
+    {
+        $this->ipReal = $realIp;
+    }
 }
