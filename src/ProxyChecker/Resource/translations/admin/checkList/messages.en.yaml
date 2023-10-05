@@ -1,32 +1,32 @@
 app:
     admin:
         ui:
-            proxy_checker.check_lists: CheckLists
-            new_proxy_checker.check_list: 'Add CheckList'
-            edit_proxy_checker.check_list: 'Edit CheckList'
-            show_proxy_checker.check_list: CheckList
+            proxy_checker.check_lists: Чек листы
+            new_proxy_checker.check_list: Добавить чеклист
+            edit_proxy_checker.check_list: Редактировать чеклист
+            show_proxy_checker.check_list: Чеклист
             modules:
                 proxy_checker:
                     check_list:
                         properties:
                             id: Id
-                            created_at: CreatedAt
-                            updated_at: UpdatedAt
+                            created_at: Дата создания
+                            updated_at: Дата обновления
                             end_at: EndAt
                             payload: Payload
-                            all_iteration: AllIteration
-                            success_iteration: SuccessIteration
+                            all_iteration: Всего итераций
+                            success_iteration: Успешных итераций
                         enums: {  }
                         enum_colors: {  }
                         flash:
-                            success: success
-                            check_list_not_exists: 'check list not exists'
+                            success: Успешно
+                            check_list_not_exists: Чеклист не существует
                         relations:
-                            proxies: Proxies
-                            proxy: Proxy
+                            proxies: Прокси
+                            proxy: Прокси
                         actions:
-                            add_proxy: 'Add Proxy'
+                            add_proxy: Добавить прокси
                         other_labels: {  }
             menu:
                 proxy_checker:
-                    check_list.list: CheckLists
+                    check_list.list: Чек листы

@@ -1,34 +1,34 @@
 app:
     admin:
         ui:
-            proxy_checker.proxies: Proxies
-            new_proxy_checker.proxy: 'Add Proxy'
-            edit_proxy_checker.proxy: 'Edit Proxy'
-            show_proxy_checker.proxy: Proxy
+            proxy_checker.proxies: Прокси
+            new_proxy_checker.proxy: Добавить прокси
+            edit_proxy_checker.proxy: Редактировать прокси
+            show_proxy_checker.proxy: Прокси
             modules:
                 proxy_checker:
                     proxy:
                         properties:
                             id: Id
-                            created_at: CreatedAt
-                            updated_at: UpdatedAt
-                            ip_proxy: IpProxy
-                            ip_real: IpReal
-                            port: Port
-                            proxy_type: ProxyType
-                            proxy_status: ProxyStatus
-                            country: Country
-                            region: Region
-                            city: City
-                            timeout: Timeout
+                            created_at: Дата создания
+                            updated_at: Дата обновления
+                            ip_proxy: IP прокси
+                            ip_real: IP реальный
+                            port: Порт
+                            proxy_type: Тип прокси
+                            proxy_status: Статус прокси
+                            country: Страна
+                            region: Регион
+                            city: Город
+                            timeout: Таймаут
                         enums:
                             proxy_type:
                                 http: http
                                 socks: socks
                                 other: other
                             proxy_status:
-                                work: work
-                                not_work: not_work
+                                work: Работает
+                                not_work: Не работает
                         enum_colors:
                             proxy_type:
                                 http: blue
@@ -42,10 +42,10 @@ app:
                             check_list_not_exists: 'check list not exists'
                             proxy_not_exists: 'proxy not exists'
                         relations:
-                            check_lists: CheckLists
-                            check_list: CheckList
+                            check_lists: Чек листы
+                            check_list: Чек лист
                         actions: {  }
                         other_labels: {  }
             menu:
                 proxy_checker:
-                    proxy.list: Proxies
+                    proxy.list: Прокси
