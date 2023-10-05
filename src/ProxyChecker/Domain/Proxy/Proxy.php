@@ -262,7 +262,16 @@ class Proxy implements AggregateRoot, ResourceInterface
         $this->updatedAt = new DateTimeImmutable();
     }
 
-    public function getDsn(): string
+    public function getProxy(): string
+    {
+        return sprintf(
+            '%s:%s',
+            $this->ipProxy,
+            $this->port,
+        );
+    }
+
+    public function getDSN(): string
     {
         return sprintf(
             '%s://%s:%s',

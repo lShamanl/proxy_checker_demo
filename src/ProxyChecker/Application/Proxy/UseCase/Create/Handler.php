@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\ProxyChecker\Application\Proxy\UseCase\Create;
 
 use App\Common\Service\Core\Flusher;
+use App\ProxyChecker\Application\Proxy\Service\ProxyChecker;
 use App\ProxyChecker\Domain\CheckList\CheckListRepository;
 use App\ProxyChecker\Domain\Proxy\Enum\ProxyStatus;
 use App\ProxyChecker\Domain\Proxy\Enum\ProxyType;
@@ -23,6 +24,7 @@ readonly class Handler
         private ProxyNextIdService $proxyNextIdService,
         private CheckListRepository $checkListRepository,
         private ClientInterface $client,
+        private ProxyChecker $proxyChecker,
     ) {
     }
 
@@ -80,6 +82,7 @@ readonly class Handler
         }
         if ('ok' === $payload['status']) {
             $proxyPayload = $payload[$ipProxy];
+
             $proxy = new Proxy(
                 id: $this->proxyNextIdService->allocateId(),
                 createdAt: $now,
@@ -95,6 +98,8 @@ readonly class Handler
                 timeout: null,
                 checkList: $checkList
             );
+
+//            $this->proxyChecker->check($proxy);
             $checkList->incrementSuccessIteration();
         }
         if (isset($proxy)) {

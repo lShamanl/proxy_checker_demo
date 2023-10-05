@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\ProxyChecker\Application\Proxy\Service;
 
+use App\ProxyChecker\Domain\Proxy\Proxy;
 use GuzzleHttp\Client;
 
 readonly class ProxyChecker
@@ -12,11 +13,11 @@ readonly class ProxyChecker
     ) {
     }
 
-    public function check(string $proxy): void
+    public function check(Proxy $proxy): void
     {
         $client = new Client([
             'timeout' => 10,
-            'proxy' => "http://{$proxy}",
+            'proxy' => "http://{$proxy->getProxy()}",
         ]);
 
         $start = microtime(true);
