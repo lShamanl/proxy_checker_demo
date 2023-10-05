@@ -46,7 +46,11 @@ readonly class ProxyChecker
             $duration = ($end - $start) * 1000; // Преобразовываем в миллисекунды
 
             $proxy->setTimeout($duration);
-            $proxy->setProxyType(ProxyType::tryFrom($protocol));
+            $proxyType = ProxyType::tryFrom($protocol);
+            if (null !== $proxyType) {
+                $proxy->setProxyType($proxyType);
+            }
+
 
             return $response;
         } catch (Throwable $throwable) {
