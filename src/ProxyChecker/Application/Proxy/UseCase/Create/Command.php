@@ -11,16 +11,8 @@ use App\ProxyChecker\Domain\Proxy\Enum\ProxyType;
 readonly class Command
 {
     public function __construct(
-        public string $ipProxy,
-        public string $ipReal,
-        public int $port,
-        public ProxyType $proxyType,
-        public ProxyStatus $proxyStatus,
-        public ?string $country,
-        public ?string $region,
-        public ?string $city,
-        public ?int $timeout,
         public CheckListId $checkListId,
+        public string $proxy,
     ) {
     }
 }

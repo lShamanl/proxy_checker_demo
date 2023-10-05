@@ -1,0 +1,4 @@
+framework:
+    messenger:
+        routing:
+            'App\ProxyChecker\Entry\MessageBus\Message\Command\InitProxyCheckMessage': common-command-transport

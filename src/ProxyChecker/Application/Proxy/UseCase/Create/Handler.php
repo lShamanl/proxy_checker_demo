@@ -28,6 +28,8 @@ readonly class Handler
             return Result::checkListNotExists();
         }
         $now = new DateTimeImmutable();
+        [$ipProxy, $port] = explode(':', $command->proxy);
+        dd($ipProxy, $port, $command->proxy);
         $proxy = new Proxy(
             id: $this->proxyNextIdService->allocateId(),
             createdAt: $now,

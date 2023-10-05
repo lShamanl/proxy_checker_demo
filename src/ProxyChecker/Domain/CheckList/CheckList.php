@@ -6,6 +6,7 @@ namespace App\ProxyChecker\Domain\CheckList;
 
 use App\Common\Service\Core\AggregateRoot;
 use App\Common\Service\Core\EventsTrait;
+use App\ProxyChecker\Domain\CheckList\Event\CheckListCreatedEvent;
 use App\ProxyChecker\Domain\CheckList\Type\CheckListIdType;
 use App\ProxyChecker\Domain\CheckList\ValueObject\CheckListId;
 use App\ProxyChecker\Domain\Proxy\Proxy;
@@ -86,8 +87,8 @@ class CheckList implements AggregateRoot, ResourceInterface
     private ?int $successIteration;
 
     #[OneToMany(
-        targetEntity: Proxy::class,
         mappedBy: 'checkList',
+        targetEntity: Proxy::class,
     )]
     private Collection $proxies;
 
@@ -108,6 +109,12 @@ class CheckList implements AggregateRoot, ResourceInterface
         $this->allIteration = $allIteration;
         $this->successIteration = $successIteration;
         $this->proxies = new ArrayCollection();
+
+        $this->recordEvent(
+            new CheckListCreatedEvent(
+                $this->id->getValue(),
+            )
+        );
     }
 
     public function edit(
